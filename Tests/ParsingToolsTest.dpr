@@ -10,7 +10,7 @@ uses
   TestInsight.DUnitX,
   {$ELSE}
   DUnitX.Loggers.Console,
-  DUnitX.Loggers.Xml.NUnit,
+  //DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
   Test.ParsingTools in 'Test.ParsingTools.pas',
@@ -21,7 +21,7 @@ var
   runner: ITestRunner;
   results: IRunResults;
   logger: ITestLogger;
-  nunitLogger : ITestLogger;
+  //nunitLogger : ITestLogger;
 {$ENDIF}
 begin
 {$IFDEF TESTINSIGHT}
@@ -39,8 +39,8 @@ begin
     logger := TDUnitXConsoleLogger.Create(true);
     runner.AddLogger(logger);
     //Generate an NUnit compatible XML File
-    nunitLogger := TDUnitXXMLNUnitFileLogger.Create(TDUnitX.Options.XMLOutputFile);
-    runner.AddLogger(nunitLogger);
+    //nunitLogger := TDUnitXXMLNUnitFileLogger.Create(TDUnitX.Options.XMLOutputFile);
+    //runner.AddLogger(nunitLogger);
     runner.FailsOnNoAsserts := False; //When true, Assertions must be made during tests;
 
     //Run tests
