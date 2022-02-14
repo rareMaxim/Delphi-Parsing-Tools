@@ -63,16 +63,16 @@ var
   lResult: string;
 begin
   LData := FData_;
-  while LData.Length > AFrom.Length + ATo.Length do
+  while true do
   begin
     TagAPosition := LData.IndexOf(AFrom);
     if TagAPosition < 0 then
-      exit;
+      break;
     LData := LData.Remove(0, TagAPosition + AFrom.Length);
     TagBPosition := LData.IndexOf(ATo);
     if TagBPosition < 0 then
-      exit;
-    lResult := LData.Substring(0, TagBPosition - ATo.Length);
+      break;
+    lResult := LData.Substring(0, TagBPosition);
     LData := LData.Substring(TagBPosition + ATo.Length);
     if not lResult.IsEmpty then
     begin
